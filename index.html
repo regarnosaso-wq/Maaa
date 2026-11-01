@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffe3ee">
+  <title>For Maa💕</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh; font-family: "Trebuchet MS", Arial, sans-serif;
+      color: #71384f; background: linear-gradient(145deg,#fff3f7,#ffdce9 55%,#fff0f5);
+      display: grid; place-items: center; padding: 22px; overflow-x: hidden;
+    }
+    .float { position: fixed; color: #f3a6c1; opacity: .45; font-size: 22px; animation: drift 8s ease-in-out infinite; pointer-events:none; }
+    .f1{top:8%;left:8%}.f2{top:17%;right:10%;animation-delay:1s}.f3{bottom:13%;left:12%;animation-delay:2s}.f4{bottom:8%;right:9%;animation-delay:3s}
+    @keyframes drift { 50% { transform: translateY(-18px) rotate(12deg); } }
+    .card {
+      width: min(100%, 470px); background: rgba(255,255,255,.84); border: 1px solid #fff;
+      border-radius: 28px; padding: 28px 22px; text-align: center;
+      box-shadow: 0 18px 55px rgba(177,83,120,.15);
+    }
+    .heart { font-size: 42px; margin-bottom: 5px; }
+    h1 { color:#d85f91; margin: 8px 0 10px; font-size: 29px; }
+    p { line-height: 1.65; }
+    .muted { color:#a66b83; font-size: 14px; }
+    input {
+      width:100%; padding:15px 16px; border:1.5px solid #f2b6cc; border-radius:15px;
+      outline:none; font-size:17px; text-align:center; color:#71384f; background:#fffafd;
+      margin: 12px 0;
+    }
+    input:focus { border-color:#d85f91; box-shadow:0 0 0 3px #fce0eb; }
+    button {
+      border:0; border-radius:999px; padding:13px 21px; background:#df78a2; color:white;
+      font-weight:700; font-size:15px; cursor:pointer; box-shadow:0 7px 18px #e9b3c8;
+      transition:transform .15s, background .15s; margin:5px;
+    }
+    button:hover { background:#d45e8f; transform:translateY(-2px); }
+    .secondary { background:#f6d5e2; color:#9a4e70; box-shadow:none; }
+    .hidden { display:none; }
+    .message {
+      background:#fff6fa; border:1px solid #f8d4e2; border-radius:18px;
+      padding:17px; margin:13px 0; text-align:left; line-height:1.65;
+    }
+    .message strong { color:#d45e8f; }
+    .letter { background:#fff9fc; border:1px dashed #e8a1bc; border-radius:18px; padding:20px; text-align:left; }
+    .tiny { font-size:12px; color:#b17a91; margin-top:18px; }
+    #error { color:#c43c6e; min-height:20px; font-size:14px; }
+  </style>
+</head>
+<body>
+  <div class="float f1">♡</div><div class="float f2">✿</div><div class="float f3">♡</div><div class="float f4">💕</div>
+
+  <main class="card" id="lock">
+    <div class="heart">💗</div>
+    <h1>A little place for Maa💕</h1>
+    <p>This page is just for you. There's something I want you to read, so enter our little password first. 🥹</p>
+    <input id="pass" type="password" placeholder="Enter the secret password" autocomplete="off">
+    <button onclick="unlock()">Open my heart 💌</button>
+    <div id="error"></div>
+    <div class="tiny">Made with love ♡</div>
+  </main>
+
+  <main class="card hidden" id="home">
+    <div class="heart">🌷</div>
+    <h1>For you, Maa💕</h1>
+    <p class="muted">A few things I want you to know.</p>
+    <div class="message">I know words are easy to say, so I don't want to only tell you that I care. I want to show you through the way I treat you, listen to you and make time for you. 💗</div>
+    <button onclick="show('promise')">My promises ♡</button>
+    <button onclick="show('letter')">A little letter 💌</button>
+    <button onclick="show('reasons')">Why you matter 🌸</button>
+    <div id="sections"></div>
+    <div class="tiny">You deserve kindness, honesty and effort — always.</div>
+  </main>
+
+  <script>
+    function unlock() {
+      const value = document.getElementById('pass').value;
+      if (value === 'us4ever') {
+        document.getElementById('lock').classList.add('hidden');
+        document.getElementById('home').classList.remove('hidden');
+      } else {
+        document.getElementById('error').textContent = 'That password isn’t right. Try again 💗';
+      }
+    }
+    document.getElementById('pass').addEventListener('keydown', e => { if (e.key === 'Enter') unlock(); });
+
+    const content = {
+      promise: `<h2>My promises to you ♡</h2>
+        <div class="message">♡ I will be honest with you, even when a conversation is difficult.<br><br>
+        ♡ I will listen instead of making you feel ignored.<br><br>
+        ♡ I will respect your feelings, your time and your boundaries.<br><br>
+        ♡ I will make an effort consistently, not only when everything is perfect.<br><br>
+        ♡ If I make a mistake, I will own it and try to do better.</div>`,
+      letter: `<h2>Dear Maa💕</h2>
+        <div class="letter">I know we have only just started this journey, and I don't expect you to believe everything from one message. I want to show you that I genuinely like you by being consistent, caring and thoughtful. I want to learn the little things that make you happy, hear about your day and make you feel appreciated. I won't promise to be perfect, but I can promise to communicate, respect you and keep putting in real effort. You don't have to guess how I feel — I'll make sure my actions speak too. 💗<br><br>With lots of care,<br><strong>Me ♡</strong></div>`,
+      reasons: `<h2>Why you matter to me 🌸</h2>
+        <div class="message">You matter because you're you. I want to know your thoughts, your favourite things, what makes you laugh and what matters to you. I appreciate the chance to get closer to you, one day at a time. You deserve to feel valued without having to ask for it. 💕</div>`
+    };
+    function show(section) {
+      document.getElementById('sections').innerHTML = content[section] + '<button class="secondary" onclick="document.getElementById(\\'sections\\').innerHTML=\\'\\'">Close</button>';
+    }
+  </script>
+</body>
+</html>
